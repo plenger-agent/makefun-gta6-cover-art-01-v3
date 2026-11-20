@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Palm Fever Cover Studio — GTA-style cover maker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">PALM FEVER <span>COVER STUDIO</span></div>
+  <div class="steps"><b>1</b> Pick photos &nbsp;·&nbsp; <b>2</b> Style the cover &nbsp;·&nbsp; <b>3</b> Export PNG</div>
+  <div class="export-actions">
+    <button class="export" id="export-one-top">Export PNG</button>
+    <button class="export secondary" id="export-all-top">Export All 3 Sizes</button>
+  </div>
+  <div class="offline-note">Fully offline — your photos never leave this machine</div>
+</header>
+<main class="studio">
+  <aside class="rail">
+    <h2>PHOTOS — TAP TO PLACE</h2>
+    <div id="rail-thumbs"></div>
+    <button class="add-photo" id="add-photo">+ Add your photo</button>
+    <input type="file" id="photo-file" accept="image/*" hidden>
+    <p class="hint">Bundled photos were made with an image model for this studio. Your own photos are read on this machine only, never uploaded.</p>
+  </aside>
+  <section class="stage"><canvas id="cover-canvas" width="1920" height="1080"></canvas></section>
+  <aside class="controls">
+    <section>
+      <h2>SIZE &amp; LAYOUT</h2>
+      <div class="seg" id="size-seg"></div>
+      <label>Layout</label>
+      <div class="seg" id="layout-seg"></div>
+    </section>
+    <section>
+      <h2>EXPORT</h2>
+      <div class="export-row">
+        <button class="export" id="export-one">Export this size</button>
+        <button class="export secondary" id="export-all">Export All 3 Sizes</button>
+      </div>
+      <div class="saved-note" id="saved-note"></div>
+    </section>
+    <section>
+      <h2>LETTERING</h2>
+      <label>Cover title</label><input type="text" id="f-title">
+      <label>Script subtitle</label><input type="text" id="f-subtitle">
+      <label>Tagline ribbon</label><input type="text" id="f-tagline">
+      <label>Pull-quote</label><input type="text" id="f-quote">
+      <label>Quote source</label><input type="text" id="f-quote-source">
+      <label>Edition plate</label><input type="text" id="f-edition">
+      <label>HUD word</label><input type="text" id="f-hud">
+      <label>Seal — top line</label><input type="text" id="f-seal-top">
+      <label>Seal — bottom line</label><input type="text" id="f-seal-bottom">
+      <label>Starburst (two lines, / between)</label><input type="text" id="f-burst">
+      <label>Credits microline</label><input type="text" id="f-credits">
+      <label>Title size</label><input type="range" id="s-title" min="80" max="120">
+    </section>
+    <section>
+      <h2>GRADE &amp; FINISH</h2>
+      <div class="seg" id="grade-seg"></div>
+      <label>Saturation</label><input type="range" id="s-saturation" min="60" max="150">
+      <label>Contrast</label><input type="range" id="s-contrast" min="70" max="140">
+      <label>Film grain</label><input type="range" id="s-grain" min="0" max="100">
+      <label>Vignette</label><input type="range" id="s-vignette" min="0" max="100">
+    </section>
+    <section>
+      <h2>PANEL</h2>
+      <div class="panel-picker" id="panel-picker"></div>
+      <label>Character tag</label><input type="text" id="f-tag-name">
+      <label>Place · time · trait</label><input type="text" id="f-tag-line">
+      <label>Zoom</label><input type="range" id="s-zoom" min="100" max="260">
+      <label>Shift across</label><input type="range" id="s-offx" min="-100" max="100">
+      <label>Shift up / down</label><input type="range" id="s-offy" min="-100" max="100">
+      <div class="export-row" style="margin-top: 8px">
+        <button class="export secondary" id="fill-all">Fill every panel with this photo</button>
+      </div>
+      <p class="hint">Tip: click a panel on the cover to select it, then tap a photo in the rail to place it there.</p>
+    </section>
+  </aside>
+</main>
+<script type="module" src="src/studio.js"></script>
+</body>
+</html>
